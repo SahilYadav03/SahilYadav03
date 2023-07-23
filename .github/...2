@@ -1,1 +1,23 @@
+package main
 
+import (
+	"bytes"
+	"crypto/rsa"
+	"fmt"
+	"math/rand"
+	"time"
+
+	"./config"
+	"./core"
+	"./role"
+	"./util"
+)
+
+var chain core.Blockchain
+var users []*role.User
+var miner *role.Miner
+
+const userCount = 4
+
+func boostNetwork() {
+	// 1. create the initial user of blockchain
